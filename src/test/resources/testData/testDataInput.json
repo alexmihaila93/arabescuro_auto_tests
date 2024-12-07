@@ -1,15 +1,15 @@
 [
   {
       "account": {
-        "username": "test",
-        "password": "test"
+        "username": "alex@alex.ro",
+        "password": "Scoala1234$"
       },
       "loginErr": "Invalid username or password!"
     },
   {
     "account": {
-      "username": "dingo",
-      "password": "dingopassword"
+      "username": "alex@alex.ro",
+      "password": "Scoala1234$"
     },
     "loginErr": ""
   }

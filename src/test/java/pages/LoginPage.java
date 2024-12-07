@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class LoginPage extends BasePage {
-    @FindBy(xpath = "//input[@id='pass']/../../button")
+    @FindBy(xpath = "//*[@id=\"username\"]")
     private WebElement signInButton;
 
     @FindBy(id = "user")
@@ -17,7 +17,7 @@ public class LoginPage extends BasePage {
     @FindBy(id = "pass")
     private WebElement passwordInput;
 
-    @FindBy(xpath = "//h1[contains(text(),'Sign in')]")
+    @FindBy(xpath = "//*[@id=\"customer_login\"]/div[1]/div/form/p[3]/button")
     private WebElement pageIdentifier;
 
     @FindBy(className = "error-message")
@@ -27,6 +27,32 @@ public class LoginPage extends BasePage {
         super(driver);
         PageFactory.initElements(driver, this);
     }
+
+
+    public class LoginPage extends BasePage {
+
+        private By cookieConsentLocator = By.xpath("//*[@id=\"CybotCookiebotDialogBody\"]"), 'Allow All') or contains(text(), 'Accept Cookies')]");
+        private By usernameLocator = By.id("alex@alex.ro");
+        private By passwordLocator = By.id("Scoala1234$");
+        private By loginButtonLocator = By.xpath("//*[@id=\"CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll\"]");
+
+        public void login(String username, String password) {
+            // First, handle cookie consent
+            handleCookieConsent(cookieConsentLocator);
+
+            // Then proceed with login
+            WebElement usernameElement = waitUntilElementVisible(usernameLocator);
+            usernameElement.sendKeys(username);
+
+            WebElement passwordElement = waitUntilElementVisible(passwordLocator);
+            passwordElement.sendKeys(password);
+
+            WebElement loginButton = waitUntilElementClickable(loginButtonLocator);
+            loginButton.click();
+        }
+    }
+
+
 
     public void login(String username, String password) {
         System.out.println("Waiting for login page to load");

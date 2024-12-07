@@ -18,6 +18,16 @@ public class BasePage {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
     }
 
+    public void handleCookieConsent(By cookieConsentLocator) {
+        try {
+            WebElement cookieConsentButton = wait.until(ExpectedConditions.elementToBeClickable(cookieConsentLocator));
+            cookieConsentButton.click();
+        } catch (TimeoutException e) {
+            System.out.println("Cookie consent button not found or not clickable: " + e.getMessage());
+        }
+    }
+
+
     public WebElement waitUntilElementVisible(By locator) {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }

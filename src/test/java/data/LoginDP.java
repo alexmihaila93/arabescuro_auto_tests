@@ -8,9 +8,9 @@ public class LoginDP {
     public Object[][] loginDataProvider() {
         return new Object[][]{
 //          username, password, browser
-                {"zebra", "zebrapassword", "edge"},
-                {"dingo", "dingopassword", "chrome"},
-                {"camel", "camelpassword", "edge"},
+                {"alex@alex.ro", "Scoala1234$", "edge"},
+                {"alex@alex.ro", "Scoala1234$", "chrome"},
+                {"alex@alex.ro", "Scoala1234$", "edge"},
         };
     }
 }
